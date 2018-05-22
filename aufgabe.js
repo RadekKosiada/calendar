@@ -61,7 +61,11 @@ window.onload = function getDefaultView() {
           // changing date's format 
           curDate = `#date${i}`;
           cd = cur.date;  
-          cDay = `${cd[0]+cd[1]+cd[2]}`;
+          if (ed[0]==0){
+           eDay = `${ed[1]+ed[2]}`;
+          } else {
+           eDay = `${ed[0]+ed[1]+ed[2]}`;
+          }   
           cYear = ` ${cd[6]+cd[7]+cd[8]+cd[9]}`;        
          
           if(cd[3] ==0 && cd[4] ==1){
@@ -129,7 +133,11 @@ window.onload = function getDefaultView() {
           // changing date's format 
           eveDate = `#date-ver${j}`;  
           ed = eve.date; 
-          eDay = `${ed[0]+ed[1]+ed[2]}`;
+          if (cd[0]==0){
+          cDay = `${cd[1]+cd[2]}`;
+         } else {
+          cDay = `${cd[0]+cd[1]+cd[2]}`;
+         }   
           eYear = ` ${ed[6]+ed[7]+ed[8]+ed[9]}`;
 
           if(ed[3] ==0 && ed[4] ==1){
