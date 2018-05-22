@@ -46,7 +46,11 @@ $('#akt-btn').on('click', function getCurrentFirst(){
          // changing date's format 
            curDate = `#date${k}`;
            cd = cur.date;  
+           if (cd[0]==0){
+           cDay = `${cd[1]+cd[2]}`;
+           } else {
            cDay = `${cd[0]+cd[1]+cd[2]}`;
+           }   
            cYear = ` ${cd[6]+cd[7]+cd[8]+cd[9]}`;        
           
            if(cd[3] ==0 && cd[4] ==1){
@@ -121,7 +125,11 @@ $('#akt-btn').on('click', function getCurrentFirst(){
              
           eveDate = `#date-ver${x}`;  
           ed = eve.date; 
+          if (ed[0]==0){
+          eDay = `${ed[1]+ed[2]}`;
+           } else {
           eDay = `${ed[0]+ed[1]+ed[2]}`;
+           }   
           eYear = ` ${ed[6]+ed[7]+ed[8]+ed[9]}`;
 
           if(ed[3] ==0 && ed[4] ==1){
