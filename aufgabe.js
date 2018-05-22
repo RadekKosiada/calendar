@@ -8,6 +8,18 @@ let events;
 // two variables to be used as shortcuts, when appending data to HTML
 let cur;
 let eve;
+
+// variables needed to change date's format
+let curDate;
+let cd;
+let cDay
+let cYear; 
+
+let eveDate;  
+let ed; 
+let eDay;
+let eYear; 
+
 // divider between each event/current
 const btmBorder = `<div class='bottom-border'></<div>`;
 // click control for triggering data from data.json just once and thus avoiding adding new fields to HTML again & again
@@ -44,7 +56,40 @@ window.onload = function getDefaultView() {
           $('#aktuelles').append(`<h6 id='date${i}' class='date'>${cur.date}</h6>`); 
           $(`#date${i}`).css('color','#696969');
           $(`#date${0}`).css('padding-top','30px');
-          $(`#date${0}`).css('margin-top', '5px');          
+          $(`#date${0}`).css('margin-top', '5px'); 
+          
+          // changing date's format 
+          curDate = `#date${i}`;
+          cd = cur.date;  
+          cDay = `${cd[0]+cd[1]+cd[2]}`;
+          cYear = ` ${cd[6]+cd[7]+cd[8]+cd[9]}`;        
+         
+          if(cd[3] ==0 && cd[4] ==1){
+            $(curDate).html(`${cDay} Januar ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==2){
+            $(curDate).html(`${cDay} Februar ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==3){
+            $(curDate).html(`${cDay} März ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==4){
+            $(curDate).html(`${cDay} April ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==5){
+            $(curDate).html(`${cDay} Mai ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==6){
+            $(curDate).html(`${cDay} Juni ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==7){
+            $(curDate).html(`${cDay} Juli ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==8){
+            $(curDate).html(`${cDay} August ${cYear}`);
+          }else if (cd[3] ==0 && cd[4] ==9){
+            $(curDate).html(`${cDay} September ${cYear}`);
+          }else if (cd[3] ==1 && cd[4] ==0){
+            $(curDate).html(`${cDay} Oktober ${cYear}`);
+          }else if (cd[3] ==1 && cd[4] ==1){
+            $(curDate).html(`${cDay} November ${cYear}`);
+          }else if (cd[3] ==1 && cd[4] ==2){
+            $(curDate).html(`${cDay} Dezember ${cYear}`);
+          };
+
           $('#aktuelles').append(`<h3 id='headline${i}' class ='headline'>${cur.headline}</h3>`);      
           $(`#headline${i}`).css('color','#696969');
           // 'if else' statement in case the 'Untertitel' is empty
@@ -75,8 +120,7 @@ window.onload = function getDefaultView() {
             $(`#btn-infos${i}`).html('> mehr Informationen');
             moreInfCtrlI=false;            
             }
-          });
-              
+          });              
 
           // 'VERANSTALTUNGEN' TAGS         
           $('#aktuelles').append(`<a href='${eve.img}' target='blank'><img id='img-ver${j}' class='clearfix' src='${eve.img}' alt='photo of the event'></a>`);         
@@ -157,7 +201,40 @@ $('#ver-btn').on("click", function getEventsFirst(){
     $('#container4').append(`<a href='${eve.img}' target='blank'><img id='img${l}' class='clearfix' src='${eve.img}' alt='photo of the event'></a>`);         
     $('#container4').append(`<h6 id='date-ver${l}' class='date'>${eve.date}</h6>`);      
     $(`#date-ver${0}`).css('padding-top','30px');
-    $(`#date-ver${0}`).css('margin-top', '5px');      
+    $(`#date-ver${0}`).css('margin-top', '5px');  
+    
+    // changing date's format 
+     eveDate = `#date-ver${j}`;  
+      ed = eve.date; 
+      eDay = `${ed[0]+ed[1]+ed[2]}`;
+      eYear = ` ${ed[6]+ed[7]+ed[8]+ed[9]}`;
+
+      if(ed[3] ==0 && ed[4] ==1){
+        $(eveDate).html(`${eDay} Januar ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==2){
+        $(eveDate).html(`${eDay} Februar ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==3){
+        $(eveDate).html(`${eDay} März ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==4){
+        $(eveDate).html(`${eDay} April ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==5){
+        $(eveDate).html(`${eDay} Mai ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==6){
+        $(eveDate).html(`${eDay} Juni ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==7){
+        $(eveDate).html(`${eDay} Juli ${eYear}`);          
+       }else if (ed[3] ==0 && ed[4] ==8){
+        $(eveDate).html(`${eDay} August ${eYear}`);
+       }else if (ed[3] ==0 && ed[4] ==9){
+        $(eveDate).html(`${eDay} September ${eYear}`);
+       }else if (ed[3] ==1 && ed[4] ==0){
+        $(eveDate).html(`${eDay} Oktober ${eYear}`);
+       }else if (ed[3] ==1 && ed[4] ==1){
+         $(eveDate).html(`${eDay} November ${eYear}`);
+       }else if (ed[3] ==1 && ed[4] ==2){
+         $(eveDate).html(`${eDay} Dezember ${eYear}`);
+          };
+    
     $('#container4').append(`<h3 id='headline-ver${l}' class ='headline'>${eve.headline}</h3>`);    
       if(!eve.infos) {
       $('#container4').append(`<h6 id='infos-ver${l}' class= 'infos'>Placeholder placeholder</h6>`);
