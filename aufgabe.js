@@ -195,7 +195,7 @@ window.onload = function getDefaultView() {
                   
           // TRIGGERING DEFAULT VIEW WHEN CLICKED ON THE 'ALLE NEWS' BUTTON          
           $('#btn-bottom').click(function getAllNews(){
-            location.reload();
+            body.reload();
           });         
         } 
       }
